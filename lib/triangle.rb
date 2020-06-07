@@ -9,11 +9,12 @@ class Triangle
  
  def valid?
     no_greater_than_zero = @side1length <=0 || @side2length  <= 0 || @side3length <= 0
-    tryarray= [@side1length,@side2length,@side3length]
+    tryarray= [@side1length,@side2length,@side3length].sort
+     tryarray[0] + tryarray[1] <= tryarray[2]
    
    triangle_possible = @side1length + @side2length > @side3length || @side2length + @side3length > @side1length || @side1length + @side3length > @side2length
     
-    if no_greater_than_zero || !triangle_possible
+    if no_greater_than_zero || !triangle_possible || 
      raise TriangleError
    end
  end
