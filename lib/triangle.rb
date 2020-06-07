@@ -6,12 +6,18 @@ class Triangle
    @side2length=side2length
    @side3length=side3length
  end
- def kind
-   no_greater_than_zero = @side1length.to_f <=0.0 || @side2length.to_f  <= 0.0 || @side3length.to_f <= 0.00
+ 
+ def valid?
+    no_greater_than_zero = @side1length.to_f <=0.0 || @side2length.to_f  <= 0.0 || @side3length.to_f <= 0.00
    triangle_impossible = ((@side1length.to_f + @side2length.to_f) < @side3length.to_f) || ((@side2length.to_f + @side3length.to_f) < @side1length.to_f) || ((@side1length.to_f + @side3length.to_f) < @side2length.to_f)
     
     if no_greater_than_zero || triangle_impossible
      raise TriangleError
+   end
+ end
+ 
+ def kind
+  
       
      if
       @side1length == @side2length && @side2length == @side3length
