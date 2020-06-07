@@ -17,7 +17,7 @@ class Triangle
  end
  
  def kind
-  
+  valid?
       
      if
       @side1length == @side2length && @side2length == @side3length
@@ -28,9 +28,8 @@ class Triangle
   
    
 elsif @side1length != @side2length && @side2length != @side3length
-
  :scalene 
- 
+ default "No triangle I've ever seen"
   end
 end
  end
