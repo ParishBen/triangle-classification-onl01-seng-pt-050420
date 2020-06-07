@@ -9,9 +9,9 @@ class Triangle
  
  def valid?
     no_greater_than_zero = @side1length.to_f <=0.0 || @side2length.to_f  <= 0.0 || @side3length.to_f <= 0.0
-   triangle_impossible = ((@side1length.to_f + @side2length.to_f) < @side3length.to_f) || ((@side2length.to_f + @side3length.to_f) < @side1length.to_f) || ((@side1length.to_f + @side3length.to_f) < @side2length.to_f)
+   triangle_possible = ((@side1length.to_f + @side2length.to_f) > @side3length.to_f) || ((@side2length.to_f + @side3length.to_f) > @side1length.to_f) || ((@side1length.to_f + @side3length.to_f) > @side2length.to_f)
     
-    if no_greater_than_zero || triangle_impossible
+    if no_greater_than_zero || !triangle_possible
      raise TriangleError
    end
  end
