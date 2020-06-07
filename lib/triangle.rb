@@ -8,8 +8,8 @@ class Triangle
  end
  
  def valid?
-    no_greater_than_zero = @side1length.to_f <=0.0 || @side2length.to_f  <= 0.0 || @side3length.to_f <= 0.0
-   triangle_possible = ((@side1length.to_f + @side2length.to_f) > @side3length.to_f) || ((@side2length.to_f + @side3length.to_f) > @side1length.to_f) || ((@side1length.to_f + @side3length.to_f) > @side2length.to_f)
+    no_greater_than_zero = @side1length <=0 || @side2length  <= 0 || @side3length <= 0
+   triangle_possible = ((@side1length + @side2length) > @side3length) || ((@side2length + @side3length) > @side1length) || ((@side1length + @side3length > @side2length)
     
     if no_greater_than_zero || !triangle_possible
      raise TriangleError
